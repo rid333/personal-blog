@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPost from "../ui/BlogPost.astro";
+
+const allPosts = await Astro.glob("./posts/*.md");
+const pageTitle = "blog";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <h1 class="font-mono font-bold text-2xl my-10">blog</h1>
+    <ul class="flex flex-col gap-5">
+        {
+            allPosts
+                .reverse()
+                .map((post) => (
+                    <BlogPost
+                        url={post.url}
+                        title={post.frontmatter.title}
+                        pubDate={post.frontmatter.pubDate
+                            .toString()
+                            .slice(0, 10)}
+                        description={post.frontmatter.description}
+                    />
+                ))
+        }
+    </ul>
+</BaseLayout>

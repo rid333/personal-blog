@@ -1,0 +1,32 @@
+---
+import BlogPost from "../ui/BlogPost.astro";
+const allPosts = await Astro.glob("../pages/posts/*.md");
+---
+
+<section class="flex flex-col gap-10">
+    <div class="flex justify-between font-bold text-2xl font-mono">
+        <h1>recent post</h1>
+        <a
+            class="hover:underline hover:text-neutral-400 text-neutral-500"
+            href="/blog">see all posts...</a
+        >
+    </div>
+
+    <ul class="flex flex-col gap-5">
+        {
+            allPosts
+                .reverse()
+                .slice(0, 4)
+                .map((post) => (
+                    <BlogPost
+                        url={post.url}
+                        title={post.frontmatter.title}
+                        pubDate={post.frontmatter.pubDate
+                            .toString()
+                            .slice(0, 10)}
+                        description={post.frontmatter.description}
+                    />
+                ))
+        }
+    </ul>
+</section>

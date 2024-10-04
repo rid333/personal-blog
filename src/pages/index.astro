@@ -1,16 +1,37 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import RecentPost from "../components/RecentPost.astro";
 
+const pageTitle = "home";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+    <div
+        class="relative flex flex-col justify-center font-mono text-2xl h-screen -mt-10"
+    >
+        <h1>hi, my name is rid</h1>
+        <p>
+            I'm currently studying physics at university. Besides my love for
+            physics, I also enjoy deep learning and tinkering with Linux.
+        </p>
+        <a href="#main" class="absolute right-0 bottom-10 animate-bounce">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+            >
+                <path
+                    fill-rule="evenodd"
+                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                ></path>
+            </svg>
+        </a>
+    </div>
+
+    <div id="main">
+        <RecentPost />
+    </div>
+</BaseLayout>
