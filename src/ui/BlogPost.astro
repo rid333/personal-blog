@@ -4,9 +4,9 @@ const { url, title, pubDate, description } = Astro.props;
 
 <li>
     <div class="font-mono">
-        <a class="text-sm lg:text-base" href={url}>{title}</a>
+        <a class="font-bold text-sm lg:text-base" href={url}>{title}</a>
         <p class="text-sm lg:text-base">{pubDate}</p>
     </div>
-    <p class="text-sm lg:text-base mt-1.5">{description}</p>
+    <p class="text-sm lg:text-base mt-1.5 font-sans">{description}</p>
     <hr class="h-px my-4 bg-neutral-600 border-0" />
 </li>

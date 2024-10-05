@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import RecentPost from "../components/RecentPost.astro";
+import Edu from "../components/Edu.astro";
 
 const pageTitle = "home";
 ---
@@ -31,7 +32,8 @@ const pageTitle = "home";
         </a>
     </div>
 
-    <div id="main">
+    <div id="main" class="space-y-14">
         <RecentPost />
+        <Edu />
     </div>
 </BaseLayout>
